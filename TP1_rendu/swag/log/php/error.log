@@ -70,3 +70,7 @@
 [12-Nov-2022 16:42:07] NOTICE: exiting, bye-bye!
 [12-Nov-2022 16:53:08] NOTICE: fpm is running, pid 276
 [12-Nov-2022 16:53:08] NOTICE: ready to handle connections
+[13-Nov-2022 13:26:29] NOTICE: Terminating ...
+[13-Nov-2022 13:26:30] NOTICE: exiting, bye-bye!
+[13-Nov-2022 13:32:41] NOTICE: fpm is running, pid 279
+[13-Nov-2022 13:32:41] NOTICE: ready to handle connections

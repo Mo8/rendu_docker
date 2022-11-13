@@ -25,3 +25,13 @@
 [12-Nov-2022 17:53:40] NOTICE: ready to handle connections
 [13-Nov-2022 12:47:58] WARNING: [pool www] child 209 exited on signal 9 (SIGKILL) after 5891.279230 seconds from start
 [13-Nov-2022 12:47:58] NOTICE: [pool www] child 241 started
+[13-Nov-2022 14:25:26] NOTICE: Terminating ...
+[13-Nov-2022 14:25:26] NOTICE: exiting, bye-bye!
+[13-Nov-2022 14:32:51] NOTICE: fpm is running, pid 196
+[13-Nov-2022 14:32:51] NOTICE: ready to handle connections
+[13-Nov-2022 14:38:07] WARNING: [pool www] child 207 exited on signal 9 (SIGKILL) after 306.891157 seconds from start
+[13-Nov-2022 14:38:07] NOTICE: [pool www] child 212 started
+[13-Nov-2022 15:00:49] WARNING: [pool www] child 209 exited on signal 9 (SIGKILL) after 1666.226266 seconds from start
+[13-Nov-2022 15:00:49] NOTICE: [pool www] child 222 started
+[13-Nov-2022 15:06:03] WARNING: [pool www] child 221 exited on signal 9 (SIGKILL) after 316.756989 seconds from start
+[13-Nov-2022 15:06:03] NOTICE: [pool www] child 227 started
