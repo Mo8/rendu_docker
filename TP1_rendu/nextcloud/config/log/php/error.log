@@ -1,0 +1,27 @@
+[04-Nov-2022 10:57:14] NOTICE: fpm is running, pid 210
+[04-Nov-2022 10:57:14] NOTICE: ready to handle connections
+[04-Nov-2022 11:00:54] WARNING: [pool www] server reached pm.max_children setting (5), consider raising it
+[04-Nov-2022 12:39:46] NOTICE: Terminating ...
+[04-Nov-2022 12:39:46] NOTICE: exiting, bye-bye!
+[04-Nov-2022 12:46:41] NOTICE: fpm is running, pid 189
+[04-Nov-2022 12:46:41] NOTICE: ready to handle connections
+[12-Nov-2022 13:41:48] NOTICE: fpm is running, pid 191
+[12-Nov-2022 13:41:48] NOTICE: ready to handle connections
+[12-Nov-2022 15:43:01] WARNING: [pool www] child 254 exited on signal 9 (SIGKILL) after 905.097659 seconds from start
+[12-Nov-2022 15:43:01] NOTICE: [pool www] child 263 started
+[12-Nov-2022 15:43:03] WARNING: [pool www] child 257 exited on signal 9 (SIGKILL) after 607.143108 seconds from start
+[12-Nov-2022 15:43:03] NOTICE: [pool www] child 264 started
+[12-Nov-2022 15:43:05] WARNING: [pool www] child 259 exited on signal 9 (SIGKILL) after 309.206279 seconds from start
+[12-Nov-2022 15:43:05] NOTICE: [pool www] child 265 started
+[12-Nov-2022 15:43:07] WARNING: [pool www] child 261 exited on signal 9 (SIGKILL) after 10.999972 seconds from start
+[12-Nov-2022 15:43:07] NOTICE: [pool www] child 266 started
+[12-Nov-2022 17:03:04] NOTICE: Terminating ...
+[12-Nov-2022 17:03:04] NOTICE: exiting, bye-bye!
+[12-Nov-2022 17:13:35] NOTICE: fpm is running, pid 192
+[12-Nov-2022 17:13:35] NOTICE: ready to handle connections
+[12-Nov-2022 17:42:07] NOTICE: Terminating ...
+[12-Nov-2022 17:42:07] NOTICE: exiting, bye-bye!
+[12-Nov-2022 17:53:39] NOTICE: fpm is running, pid 193
+[12-Nov-2022 17:53:40] NOTICE: ready to handle connections
+[13-Nov-2022 12:47:58] WARNING: [pool www] child 209 exited on signal 9 (SIGKILL) after 5891.279230 seconds from start
+[13-Nov-2022 12:47:58] NOTICE: [pool www] child 241 started

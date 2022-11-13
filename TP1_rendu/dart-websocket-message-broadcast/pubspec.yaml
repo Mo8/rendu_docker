@@ -1,0 +1,6 @@
+name: websocket_server
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+dependencies: {args: ^2.3.1}
+
+

@@ -1,0 +1,163 @@
+version: '2'
+services:  
+
+
+  heimdall:
+    image: lscr.io/linuxserver/heimdall
+    container_name: heimdall
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+    volumes:
+      - ./heimdall:/config
+
+
+  mariadb:
+    image: mariadb
+    container_name: mariadb
+    privileged: true
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Paris
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_PASSWORD=mariadb
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=mariadb
+      - MYSQL_HOST=mariadb
+    volumes:
+      - ./mariadb:/var/lib/mysql
+    restart: unless-stopped
+
+  nextcloud:
+    image: lscr.io/linuxserver/nextcloud
+    container_name: nextcloud
+    privileged: true
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Paris
+    volumes:
+      - ./nextcloud/config:/config
+      - ./nextcloud/data:/data
+    depends_on:
+      - mariadb
+
+  swag:
+    image: lscr.io/linuxserver/swag
+    container_name: swag
+    cap_add:
+      - NET_ADMIN
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+      - URL=test6482.duckdns.org
+      - SUBDOMAINS=wildcard
+      - VALIDATION=duckdns
+      - DUCKDNSTOKEN=dc188f82-4cfe-4a82-9fb5-27e60b67871f
+    volumes:
+      - ./swag:/config
+    ports:
+      - 443:443
+      - 80:80
+    restart: unless-stopped
+
+  phpmyadmin:
+    image: phpmyadmin
+    container_name: phpmyadmin
+    restart: always
+    environment:
+      - PMA_HOSTS=mariadb,mysqldb
+      - PMA_PORT=3306
+
+
+  gitea:
+    image: gitea/gitea
+    container_name: gitea
+    environment:
+      - USER_UID=1000
+      - USER_GID=1000
+      - GITEA__database__DB_TYPE=mysql
+      - GITEA__database__HOST=mysqldb:3306
+      - GITEA__database__NAME=gitea
+      - GITEA__database__USER=gitea
+      - GITEA__database__PASSWD=gitea
+    restart: always
+    volumes:
+      - ./gitea:/data
+    depends_on:
+      - mysqldb
+
+  mysqldb:
+    image: mysql:8
+    restart: always
+    container_name: mysqldb
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_USER=gitea
+      - MYSQL_PASSWORD=gitea
+      - MYSQL_DATABASE=gitea
+    volumes:
+      - ./mysql:/var/lib/mysql
+
+  openldap:
+    image: osixia/openldap:latest
+    container_name: openldap
+    hostname: openldap
+    volumes:
+      - ./openldap/certificates:/container/service/slapd/assets/certs
+      - ./openldap/slapd/database:/var/lib/ldap
+      - ./openldap/slapd/config:/etc/ldap/slapd.d
+    environment: 
+      - LDAP_ORGANISATION=opendldap
+      - LDAP_DOMAIN=openldap
+      - LDAP_ADMIN_PASSWORD=admin
+      - LDAP_CONFIG_PASSWORD=config
+      - LDAP_RFC2307BIS_SCHEMA=true
+      - LDAP_REMOVE_CONFIG_AFTER_SETUP=true
+      - LDAP_TLS_VERIFY_CLIENT=never
+
+  openldap-ui:
+    image: wheelybird/ldap-user-manager:v1.5
+    container_name: openldap-ui
+    environment:
+      - LDAP_URI=ldap://openldap
+      - LDAP_BASE_DN=dc=openldap
+      - LDAP_REQUIRE_STARTTLS=FALSE
+      - LDAP_ADMINS_GROUP=admins
+      - LDAP_ADMIN_BIND_DN=cn=admin,dc=openldap
+      - LDAP_ADMIN_BIND_PWD=admin
+      - LDAP_IGNORE_CERT_ERRORS=true
+      - NO_HTTPS=TRUE
+      - PASSWORD_HASH=SSHA
+      - SERVER_HOSTNAME=openldap-ui.test6482.duckdns.org
+    depends_on:
+      - openldap
+
+  wordpress:
+    image: wordpress
+    restart: always
+    container_name: wordpress
+    environment:
+      WORDPRESS_DB_HOST: mysqldb
+      WORDPRESS_DB_USER: root
+      WORDPRESS_DB_PASSWORD: root
+      WORDPRESS_DB_NAME: wordpress
+    volumes:
+      - ./wordpress:/var/www/html
+
+  websocket_message:
+    build: ./dart-websocket-message-broadcast/
+    container_name: websocket_message
+    ports:
+      - 8080:8080
+
+  plik:
+    image: rootgg/plik:latest
+    container_name: plik
+    volumes:
+      - ./plik/plikd.cfg:/home/plik/server/plikd.cfg
+      - ./plik/data:/data 
+    restart: "unless-stopped"

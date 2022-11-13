@@ -1,0 +1,5 @@
+2022/11/04 11:00:12 [error] 223#223: *17 upstream timed out (110: Operation timed out) while reading response header from upstream, client: 10.0.2.2, server: _, request: "POST /index.php HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "nextcloud.test6482.duckdns.org"
+2022/11/04 12:39:50 [alert] 211#211: worker process 223 exited on signal 9
+2022/11/04 12:39:50 [alert] 211#211: worker process 222 exited on signal 9
+2022/11/12 17:03:08 [alert] 186#186: worker process 200 exited on signal 9
+2022/11/12 17:03:08 [alert] 186#186: worker process 199 exited on signal 9
