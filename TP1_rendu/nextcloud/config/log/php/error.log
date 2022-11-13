@@ -35,3 +35,9 @@
 [13-Nov-2022 15:00:49] NOTICE: [pool www] child 222 started
 [13-Nov-2022 15:06:03] WARNING: [pool www] child 221 exited on signal 9 (SIGKILL) after 316.756989 seconds from start
 [13-Nov-2022 15:06:03] NOTICE: [pool www] child 227 started
+[13-Nov-2022 15:31:57] WARNING: [pool www] child 226 exited on signal 9 (SIGKILL) after 1557.095447 seconds from start
+[13-Nov-2022 15:31:57] NOTICE: [pool www] child 237 started
+[13-Nov-2022 15:31:59] WARNING: [pool www] child 227 exited on signal 9 (SIGKILL) after 1556.074724 seconds from start
+[13-Nov-2022 15:31:59] NOTICE: [pool www] child 238 started
+[13-Nov-2022 15:32:01] WARNING: [pool www] child 233 exited on signal 9 (SIGKILL) after 311.988337 seconds from start
+[13-Nov-2022 15:32:01] NOTICE: [pool www] child 239 started
